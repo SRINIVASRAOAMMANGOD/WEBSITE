@@ -1,0 +1,47 @@
+/* SUGGESTION.css */
+
+.form-container {
+    width: 100%; /* Occupy full width of the parent container */
+    max-width: 600px; /* Set a maximum width for better readability on larger screens */
+    margin: 0 auto; /* Center align the form horizontally */
+    padding: 20px; /* Add padding inside the form container */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    text-align: center; /* Center align text content inside the form */
+    border: 3px solid white; /* Double broken line border with white color */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White shadow effect */
+}
+
+.form-group {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 10px; /* Space between each form group */
+    text-align: left; /* Align text inside form groups to the left */
+}
+
+.form-group label {
+    min-width: 130px; /* Minimum width for labels to ensure consistent alignment */
+    padding-right: 10px; /* Space between label and input field */
+    text-align: right; /* Align labels to the right for a cleaner look */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    flex: 1; /* Allow input fields and textareas to expand and fill available space */
+    padding: 12px; /* Padding inside input fields and textareas */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    width: 100%; /* Occupy full width of the form group container */
+    max-width: 350px; /* Limit maximum width of input fields */
+    font-size: 16px; /* Set font size for better readability */
+}
+
+.form-group textarea {
+    height: 100px; /* Fixed height for textareas */
+}
+
+.form-actions {
+    margin-top: 20px; /* Space above form actions */
+    text-align: center; /* Center align form action buttons */
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <!-- Character encoding for the document -->
+<title>SUGGESTION FORM</title> <!-- Title of the webpage -->
+<link href="SUGGESTION.css" rel="stylesheet" type="text/css"> <!-- Link to external CSS stylesheet -->
+
+<style>
+    body {
+        background-image: url('BACKGROUND.png'); /* Background image for the body */
+        background-repeat: no-repeat; /* Prevent background image from repeating */
+        background-attachment: fixed; /* Fixed background position */
+        background-size: 100% 100%; /* Cover the entire viewport */
+        color: white; /* Text color */
+    }
+</style>
+
+</head>
+
+<body>
+
+<h1 style="text-align:center;">SUGGESTION</h1> <!-- Heading for the form -->
+
+<form id="suggestionForm" class="form-container" name="submit-to-google-sheet"> <!-- Form element with an ID and a name attribute -->
+    <div class="form-group">
+        <label for="fname">FIRST NAME: </label> <!-- Label for the first name input field -->
+        <input type="text" id="fname" name="fname" placeholder="ENTER FIRST NAME" required> <!-- Text input for first name, required field -->
+    </div>
+
+    <div class="form-group">
+        <label for="mname">MIDDLE NAME: </label> <!-- Label for the middle name input field -->
+        <input type="text" id="mname" name="mname" placeholder="ENTER MIDDLE NAME IF EXIST"> <!-- Text input for middle name -->
+    </div>
+
+    <div class="form-group">
+        <label for="lname">LAST NAME: </label> <!-- Label for the last name input field -->
+        <input type="text" id="lname" name="lname" placeholder="ENTER LAST NAME IF EXIST"> <!-- Text input for last name -->
+    </div>
+
+    <div class="form-group">
+        <label for="email">EMAIL ID: </label> <!-- Label for the email input field -->
+        <input type="email" id="email" name="email" placeholder="ANYMAIL@gmail.com"> <!-- Email input -->
+    </div>
+
+    <div class="form-group">
+        <label for="phone">PHONE NUMBER:</label> <!-- Label for the phone number input field -->
+        <input type="tel" id="phone" name="phone" placeholder="+91 **********"> <!-- Telephone number input -->
+    </div>
+
+    <div class="form-group">
+        <label for="suggestionText">SUGGESTION: </label> <!-- Label for the suggestion textarea -->
+        <textarea id="suggestionText" name="SUGGESTION" placeholder="TYPE SUGGESTION HERE"></textarea> <!-- Textarea for suggestion -->
+    </div>
+
+    <!-- Hidden fields for storing date and time -->
+    <input type="hidden" id="currentDate" name="currentDate">
+    <input type="hidden" id="currentTime" name="currentTime">
+
+    <div class="form-actions">
+        <input type="reset" value="RESET"> <!-- Reset button to clear the form -->
+        <input type="button" value="SUBMIT" onclick="validateAndSubmit()"> <!-- Submit button with onclick event to validate and submit -->
+    </div>
+</form>
+
+<script>
+
+    function validateAndSubmit() {
+        const fname = document.getElementById('fname').value.trim(); // Get and trim first name input
+        const phone = document.getElementById('phone').value.trim(); // Get and trim phone number input
+        const suggestion = document.getElementById('suggestionText').value.trim(); // Get and trim suggestion textarea
+
+        // Validate form inputs
+        if (fname === '') {
+            alert('ENTER FIRST NAME'); // Alert if first name is empty
+        } else if (phone === '') {
+            alert('ENTER PHONE NUMBER'); // Alert if phone number is empty
+        } else if (suggestion === '') {
+            alert('ENTER SUGGESTION'); // Alert if suggestion is empty
+        } else {
+            // Set current date and time in hidden fields
+            const now = new Date();
+            const date = now.toLocaleDateString('en-CA'); // Format date as YYYY-MM-DD
+            const time = now.toTimeString().split(' ')[0]; // Format time as HH:MM:SS
+
+            document.getElementById('currentDate').value = date; // Set date in YYYY-MM-DD format
+            document.getElementById('currentTime').value = time; // Set time in HH:MM:SS format
+
+            submitForm(); // Call submitForm function if all fields are filled
+        }
+    }
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxGRCRhuoz-swTExXYnnu9j1ObwebSp1v_FyhXs70CuAGcGU747de6JL0Bv8nJALikp/exec'; // Variable storing the URL to submit the form data
+    const form = document.forms['submit-to-google-sheet']; // Get the form by name attribute
+
+    function submitForm() {
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) }) // Use Fetch API to post form data
+        .then(response => {
+            console.log('Response:', response); // Log the response
+            if (!response.ok) {
+                throw new Error('Network response was not ok'); // Throw error if response is not ok
+            }
+            return response.text(); // Return response text
+        })
+        .then(data => {
+            console.log('Success!', data); // Log success message with data
+            form.reset(); // Reset the form after successful submission
+        })
+        .catch(error => {
+            console.error('Error!', error); // Log error if fetch fails
+        });
+    }
+
+</script>
+
+</body>
+</html>

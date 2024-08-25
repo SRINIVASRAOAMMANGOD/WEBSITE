@@ -1,0 +1,153 @@
+/* Webfonts */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+/* Body and Background */
+body {
+  background-image: url('BACKGROUND.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Heading */
+h1 {
+  text-align: center;
+  color: white;
+  margin: 20px 0;
+}
+
+/* Horizontal Line */
+hr {
+  border: 0;
+  border-top: 1px solid #fff;
+  margin: 20px 0;
+}
+
+/* Ordered List */
+ol {
+  padding-left: 20px;
+}
+
+ol a {
+  color: white;
+  text-decoration: none;
+}
+
+ol a:hover {
+  text-decoration: underline;
+}
+
+/* Unordered List */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+th, td {
+  border: 3px solid white;
+  padding: 20px;
+  text-align: left;
+}
+
+th {
+  background-color: transparent;
+}
+
+/* Image Styling */
+img {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  width: 200px;
+  height: 245px;
+}
+
+/* Form Styling */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+  margin-left: 0.5em;
+  height: 2.5em;
+  padding: 0.2em 1em 0.2em 2.25em;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  color: #696666;
+  background: url(https://i.imgur.com/Th606mh.png) no-repeat scroll 0.75em 0.07em transparent;
+  background-size: 54px 204px;
+  border-radius: 2em;
+  border: 0.15em solid #F9C23C;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #EAA502;
+  border-color: #EAA502;
+  background-position: 0.75em bottom;
+}
+
+input[type="submit"]:focus {
+  background-position: 2em -4em;
+}
+
+/* Button Styling */
+button {
+  background-color: #10f22a;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
